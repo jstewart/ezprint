@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
      "VERSION",
      "ezprint.gemspec",
      "init.rb",
+     "lib/ezprint.rb",
      "lib/ezprint/pdf_helper.rb",
      "lib/ezprint/rails.rb",
      "rails/init.rb"

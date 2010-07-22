@@ -17,11 +17,16 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    ".document",
-     ".gitignore",
+     "MIT-LICENSE",
+     "README",
      "README.rdoc",
      "Rakefile",
-     "VERSION"
+     "VERSION",
+     "ezprint.gemspec",
+     "init.rb",
+     "lib/ezprint/pdf_helper.rb",
+     "lib/ezprint/rails.rb",
+     "rails/init.rb"
   ]
   s.homepage = %q{http://github.com/jstewart/ezprint}
   s.rdoc_options = ["--charset=UTF-8"]

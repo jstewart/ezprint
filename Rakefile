@@ -10,6 +10,7 @@ begin
     gem.email = "jstewart@fusionary.com"
     gem.homepage = "http://github.com/jstewart/ezprint"
     gem.authors = ["Jason Stewart"]
+    gem.add_dependency 'pdfkit', '>=0.4.1'
   end
 
 rescue LoadError

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ezprint}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jason Stewart"]
-  s.date = %q{2010-07-22}
+  s.date = %q{2010-07-23}
   s.description = %q{A Rails wrapper for the PDFkit library. Meant to be a drop in replacement for princely.}
   s.email = %q{jstewart@fusionary.com}
   s.extra_rdoc_files = [
@@ -42,9 +42,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<pdfkit>, [">= 0.4.1"])
     else
+      s.add_dependency(%q<pdfkit>, [">= 0.4.1"])
     end
   else
+    s.add_dependency(%q<pdfkit>, [">= 0.4.1"])
   end
 end
 

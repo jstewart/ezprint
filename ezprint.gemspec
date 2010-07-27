@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ezprint}
-  s.version = "0.1.1"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jason Stewart"]
-  s.date = %q{2010-07-23}
+  s.date = %q{2010-07-26}
   s.description = %q{A Rails wrapper for the PDFkit library. Meant to be a drop in replacement for princely.}
   s.email = %q{jstewart@fusionary.com}
   s.extra_rdoc_files = [
@@ -25,11 +25,9 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "ezprint.gemspec",
-     "init.rb",
      "lib/ezprint.rb",
      "lib/ezprint/pdf_helper.rb",
-     "lib/ezprint/rails.rb",
-     "rails/init.rb"
+     "lib/ezprint/railtie.rb"
   ]
   s.homepage = %q{http://github.com/jstewart/ezprint}
   s.rdoc_options = ["--charset=UTF-8"]

@@ -11,6 +11,7 @@ prince->PDFKit for those using princely.
 == Rails 2.x
 
 gem install ezprint
+
 in environment.rb config.gem "ezprint"
 
 == Rails 3

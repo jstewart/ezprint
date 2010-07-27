@@ -17,6 +17,7 @@ in environment.rb config.gem "ezprint"
 == Rails 3
 
 gem 'ezprint', :git => 'git@github.com:jstewart/ezprint.git', :branch => 'rails3', :require => 'ezprint'
+
 then run "bundle install"
 
 == Example

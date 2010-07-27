@@ -1,1 +1,1 @@
-require 'ezprint/pdf_helper'
+require 'ezprint/railtie'

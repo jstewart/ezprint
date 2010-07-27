@@ -6,6 +6,20 @@ dollars. I recommend using the Rack middleware component of PDFKit to
 print PDFs in rails, but this plugin makes an easy transition from 
 prince->PDFKit for those using princely.
 
+== Installation
+
+== Rails 2.x
+
+gem install ezprint
+
+in environment.rb config.gem "ezprint"
+
+== Rails 3
+
+gem 'ezprint', :git => 'git@github.com:jstewart/ezprint.git', :branch => 'rails3', :require => 'ezprint'
+
+then run "bundle install"
+
 == Example
 
     The examples here are similar to princely, since the 

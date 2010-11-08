@@ -1,1 +1,4 @@
-require File.dirname(__FILE__) + "/../lib/ezprint/rails"
+require 'ezprint/pdf_helper'
+
+Mime::Type.register 'application/pdf', :pdf
+ActionController::Base.send(:include, PdfHelper)

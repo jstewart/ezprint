@@ -47,6 +47,10 @@ module PdfHelper
   end
 
   def process_html_string(html)
-    html.gsub!("src=\"/","src=\"#{RAILS_ROOT}/public/") # reroute absolute paths
+    # reroute absolute paths
+    html.gsub!("src=\"/", "src=\"#{RAILS_ROOT}/public/")
+    html.gsub!("href=\"/", "src=\"#{RAILS_ROOT}/public/")
+    html.gsub!("url(/", "url(#{RAILS_ROOT}/public/")
+    html
   end
 end

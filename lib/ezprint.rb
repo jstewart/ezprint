@@ -5,5 +5,5 @@ if defined?(::Rails::Railtie)
 else
   # Rails 2.x
   Mime::Type.register 'application/pdf', :pdf
-  ActionController::Base.send(:include, PdfHelper)
+  ActionController::Base.send(:include, EzPrint::PdfHelper)
 end

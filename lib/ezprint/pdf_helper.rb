@@ -1,7 +1,7 @@
 module EzPrint
   module PdfHelper
     require 'pdfkit'
-    
+
     def self.included(base)
       base.class_eval do
         alias_method_chain :render, :ezprint
@@ -15,15 +15,15 @@ module EzPrint
         options[:name] ||= options.delete(:pdf)
         make_and_send_pdf(options.delete(:name), options)
       end
-    end  
-    
+    end
+
     private
-    
+
     def make_pdf(options = {})
       options[:stylesheets] ||= []
       options[:layout] ||= false
       options[:template] ||= File.join(controller_path,action_name)
-      
+
       # Stop Rails from appending timestamps to assets.
       ENV["RAILS_ASSET_ID"] = ''
       html_string = render_to_string(:template => options[:template], :layout => options[:layout])
@@ -39,9 +39,9 @@ module EzPrint
                 make_pdf(options),
                 :filename => pdf_name + ".pdf",
                 :type => 'application/pdf'
-                ) 
+                )
     end
-    
+
     def stylesheet_file_path(stylesheet)
       stylesheet = stylesheet.to_s.gsub(".css","")
       File.join(ActionView::Helpers::AssetTagHelper::STYLESHEETS_DIR,"#{stylesheet}.css")

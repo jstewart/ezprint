@@ -2,7 +2,7 @@ Ezprint
 =======
 
 Ezprint is a drop in replacement for the princely plugin. It uses PDFKit
-as the backend instead pf princexml, possibly saving you millions of 
+as the backend instead of princexml, possibly saving you millions of 
 dollars. I recommend using the Rack middleware component of PDFKit to 
 print PDFs in rails, but this plugin makes an easy transition from 
 prince->PDFKit for those using princely.

@@ -35,9 +35,18 @@ module EzPrint
     end
 
     def make_and_send_pdf(pdf_name, options = {})
+      filename = "#{pdf_name}.pdf"
+      if request.headers['User-Agent'] =~ /MSIE ([0-9]{1,}[\.0-9]{0,})/
+        response.headers['Content-Disposition'] = "attachment;filename=\"#{filename}.pdf\""
+        response.headers['Content-Description'] = 'File Transfer'
+        response.headers['Content-Transfer-Encoding'] = 'binary'
+        response.headers['Expires'] = '0'
+        response.headers['Pragma'] = 'public'
+      end
+
       send_data(
                 make_pdf(options),
-                :filename => pdf_name + ".pdf",
+                :filename => filename,
                 :type => 'application/pdf'
                 )
     end

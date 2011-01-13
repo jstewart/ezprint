@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ezprint}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jason Stewart"]
-  s.date = %q{2011-01-04}
+  s.date = %q{2011-01-13}
   s.description = %q{A Rails wrapper for the PDFkit library. Meant to be a drop in replacement for princely.}
   s.email = %q{jstewart@fusionary.com}
   s.extra_rdoc_files = [

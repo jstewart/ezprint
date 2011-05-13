@@ -1,13 +1,11 @@
-module EzPrint
+module Ezprint
   module PdfHelper
-    require 'pdfkit'
-
     def self.included(base)
       base.class_eval do
         alias_method_chain :render, :ezprint
       end
     end
-    
+
     def render_with_ezprint(options = nil, *args, &block)
       if options.is_a?(Symbol) or options.nil? or options[:pdf].nil?
         render_without_ezprint(options, *args, &block)
@@ -20,18 +18,14 @@ module EzPrint
     private
 
     def make_pdf(options = {})
-      stylesheets = options.delete(:stylesheets) || []
-      layout = options.delete(:layout) || false
-      template = options.delete(:template) || File.join(controller_path,action_name)
+      template              = options.delete(:template) || File.join(controller_path,action_name)
+      layout                = options.delete(:layout) || false
+      stylesheets           = options[:stylesheets] || []
+      options[:stylesheets] = stylesheets.map { |s| stylesheet_file_path(s) }
 
-      # Stop Rails from appending timestamps to assets.
-      ENV["RAILS_ASSET_ID"] = ''
+      ENV["RAILS_ASSET_ID"] = ''  # Stop Rails from appending timestamps to assets
       html_string = render_to_string(:template => template, :layout => layout)
-
-      kit = PDFKit.new(process_html_string(html_string), options)
-      kit.stylesheets = stylesheets.collect{ |style| stylesheet_file_path(style) }
-
-      kit.to_pdf
+      Ezprint.get_processor.send(:process, html_string, options)
     end
 
     def make_and_send_pdf(pdf_name, options = {})
@@ -52,16 +46,14 @@ module EzPrint
     end
 
     def stylesheet_file_path(stylesheet)
-      stylesheet = stylesheet.to_s.gsub(".css","")
-      File.join(ActionView::Helpers::AssetTagHelper::STYLESHEETS_DIR,"#{stylesheet}.css")
-    end
-
-    def process_html_string(html)
-      # reroute absolute paths
-      html.gsub!("src=\"/", "src=\"#{RAILS_ROOT}/public/")
-      html.gsub!("href=\"/", "src=\"#{RAILS_ROOT}/public/")
-      html.gsub!("url(/", "url(#{RAILS_ROOT}/public/")
-      html
+      if defined? ActionView::Helpers::AssetTagHelper::STYLESHEETS_DIR
+        stylesheet = stylesheet.to_s.gsub(".css","")
+        File.join(ActionView::Helpers::AssetTagHelper::STYLESHEETS_DIR,"#{stylesheet}.css")
+      else
+        # Rails 3 does not provide this constant or an easy way to get the
+        # equivalent here. specify the full path to stylesheets in the controller instead
+        stylesheet
+      end
     end
   end
 end

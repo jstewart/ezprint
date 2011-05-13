@@ -1,8 +1,7 @@
 require 'action_controller/base'
 require 'action_dispatch/http/mime_types'
-require 'ezprint/pdf_helper'
 
-module EzPrint
+module Ezprint
   class Railtie < Rails::Railtie
 
     initializer :init_mime_types do
@@ -11,7 +10,7 @@ module EzPrint
 
     initializer :insert_into_action_controller do
       ActiveSupport.on_load :action_controller  do
-        ActionController::Base.send(:include, EzPrint::PdfHelper)
+        ActionController::Base.send(:include, Ezprint::PdfHelper)
       end
     end
   end

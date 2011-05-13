@@ -1,9 +1,27 @@
-require 'ezprint/pdf_helper'
+require 'active_support/inflector'
+
+module Ezprint
+  autoload :PdfHelper, 'ezprint/pdf_helper'
+
+  module Processors
+    autoload :Base, 'ezprint/processors/base'
+    autoload :Pdfkit, 'ezprint/processors/pdfkit'
+    autoload :Prince, 'ezprint/processors/prince'
+  end
+
+  @@processor = :pdfkit
+  mattr_accessor :processor
+
+  def self.get_processor
+    processor = "Ezprint::Processors::" + Ezprint.processor.to_s.camelize
+    processor.constantize
+  end
+end
 
 if defined?(::Rails::Railtie)
   require 'ezprint/railtie'
 else
   # Rails 2.x
   Mime::Type.register 'application/pdf', :pdf
-  ActionController::Base.send(:include, EzPrint::PdfHelper)
+  ActionController::Base.send(:include, Ezprint::PdfHelper)
 end

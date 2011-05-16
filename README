@@ -62,7 +62,7 @@ Using another PDF processor
 
 While ezprint has been designed with PDFKit in mind, other PDF processors
 such as princexml can be used. A princexml processor is included and can be used
-by setting Ezprint.processor = :prince in an initilizer.
+by setting Ezprint.processor = :prince in an initializer.
 
 It's also easy to create your own processor:
 

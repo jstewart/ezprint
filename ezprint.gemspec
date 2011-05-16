@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ezprint}
-  s.version = "0.2.2"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jason Stewart"]
-  s.date = %q{2011-05-13}
+  s.date = %q{2011-05-16}
   s.description = %q{A Rails wrapper for the PDFkit library. Meant to be a drop in replacement for princely.}
   s.email = %q{jstewart@fusionary.com}
   s.extra_rdoc_files = [
@@ -27,6 +27,9 @@ Gem::Specification.new do |s|
     "init.rb",
     "lib/ezprint.rb",
     "lib/ezprint/pdf_helper.rb",
+    "lib/ezprint/processors/base.rb",
+    "lib/ezprint/processors/pdfkit.rb",
+    "lib/ezprint/processors/prince.rb",
     "lib/ezprint/railtie.rb"
   ]
   s.homepage = %q{http://github.com/jstewart/ezprint}

@@ -56,7 +56,6 @@ The defaults for the render options are as follows:
 
 
 == Using another PDF processor
-===========================
 
 While ezprint has been designed with PDFKit in mind, other PDF processors
 such as princexml can be used. A princexml processor is included and can be used

@@ -47,7 +47,13 @@ module Ezprint
 
     def stylesheet_file_path(stylesheet)
       stylesheet = stylesheet.to_s.gsub(".css","")
-      File.join(config.stylesheets_dir, "#{stylesheet}.css")
+
+      stylesheets_dir = if defined? ActionView::Helpers::AssetTagHelper::STYLESHEETS_DIR
+                          ActionView::Helpers::AssetTagHelper::STYLESHEETS_DIR
+                        else
+                          config.stylesheets_dir
+                        end
+      File.join(stylesheets_dir, "#{stylesheet}.css")
     end
   end
 end

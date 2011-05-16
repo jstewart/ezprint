@@ -54,6 +54,26 @@ The defaults for the render options are as follows:
     template:    the template for the current controller/action
     stylesheets: none
 
+
+== Using another PDF processor
+===========================
+
+While ezprint has been designed with PDFKit in mind, other PDF processors
+such as princexml can be used. A princexml processor is included and can be used
+by setting Ezprint.processor = :prince in an initilizer.
+
+It's also easy to create your own processor:
+
+module Ezprint
+  module Processors
+    class MyProcessor < Base
+      def self.process(html_string, options = {})
+        # Code to return a PDF string from an html string here.
+      end
+    end
+  end
+end
+
 == Credits
 
 * Michael Bleigh for writing the awesome princely plugin, which most of the code is reworked from.

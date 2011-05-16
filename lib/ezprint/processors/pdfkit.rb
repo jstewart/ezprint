@@ -2,7 +2,7 @@ require 'pdfkit'
 
 module Ezprint
   module Processors
-    class Pdfkit
+    class Pdfkit < Base
       def self.process(html_string, options = {})
         stylesheets = options.delete(:stylesheets)
         kit = PDFKit.new(self.process_html(html_string), options)

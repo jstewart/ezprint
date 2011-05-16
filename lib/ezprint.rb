@@ -13,8 +13,7 @@ module Ezprint
   mattr_accessor :processor
 
   def self.get_processor
-    processor = "Ezprint::Processors::" + Ezprint.processor.to_s.camelize
-    processor.constantize
+    ::Ezprint::Processors.const_get(Ezprint.processor.to_s.classify)
   end
 end
 

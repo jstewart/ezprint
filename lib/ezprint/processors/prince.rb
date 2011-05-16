@@ -1,6 +1,6 @@
 module Ezprint
   module Processors
-    class Prince
+    class Prince < Base
       def self.process(html_string, options = {})
         pdf = IO.popen(self.cmd(options), "w+")
         pdf.puts(self.process_html(html_string))

@@ -46,14 +46,8 @@ module Ezprint
     end
 
     def stylesheet_file_path(stylesheet)
-      if defined? ActionView::Helpers::AssetTagHelper::STYLESHEETS_DIR
-        stylesheet = stylesheet.to_s.gsub(".css","")
-        File.join(ActionView::Helpers::AssetTagHelper::STYLESHEETS_DIR,"#{stylesheet}.css")
-      else
-        # Rails 3 does not provide this constant or an easy way to get the
-        # equivalent here. specify the full path to stylesheets in the controller instead
-        stylesheet
-      end
+      stylesheet = stylesheet.to_s.gsub(".css","")
+      File.join(config.stylesheets_dir, "#{stylesheet}.css")
     end
   end
 end

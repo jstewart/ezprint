@@ -80,4 +80,4 @@ install the wkhtmltopdf-binary gem or put it in your Gemfile.
 
 == Resources
 
-* Copyright (c) 2010 Jason Stewart, released under the MIT license.
+* Copyright (c) 2012 Jason Stewart, released under the MIT license.

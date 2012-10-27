@@ -25,9 +25,9 @@ module Ezprint
 
       def self.process_html(html)
         # reroute absolute paths
-        html.gsub!("src=\"/", "src=\"#{RAILS_ROOT}/public/")
-        html.gsub!("href=\"/", "src=\"#{RAILS_ROOT}/public/")
-        html.gsub!("url(/", "url(#{RAILS_ROOT}/public/")
+        html.gsub!("src=\"/", "src=\"#{Rails.public_path}/")
+        html.gsub!("href=\"/", "src=\"#{Rails.public_path}/")
+        html.gsub!("url(/", "url(#{Rails.public_path}/")
         html
       end
     end

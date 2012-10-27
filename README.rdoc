@@ -8,13 +8,8 @@ prince->PDFKit for those using princely.
 
 == Installation
 
-== Rails 2.x
-
-gem install ezprint
-
-in environment.rb config.gem "ezprint"
-
-== Rails 3
+Version 1.0.0 deprecates support for Rails 2. For Rails 2.x support,
+install an earlier version.
 
 gem 'ezprint'
 
